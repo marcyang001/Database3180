@@ -38,3 +38,43 @@ NOMCLIENT            NOTELEPHONE
 -------------------- ---------------                                            
 Lin Bo               (777)777-7777                                              
 
+SQL> /
+
+DATEEVEN                                                                        
+--------                                                                        
+00-06-01                                                                        
+00-06-02                                                                        
+00-06-03                                                                        
+00-06-04                                                                        
+00-06-05                                                                        
+00-07-05                                                                        
+00-07-07                                                                        
+00-07-08                                                                        
+00-07-09                                                                        
+00-07-15                                                                        
+
+10 rows selected.
+
+SQL> SELECT DateLivraison as DateEvenement
+  2  FROM Livraison
+  3  UNION
+  4  SELECT DateCommande
+  5  FROM Commande
+  6  /
+
+DATEEVEN                                                                        
+--------                                                                        
+00-06-01                                                                        
+00-06-02                                                                        
+00-06-03                                                                        
+00-06-04                                                                        
+00-06-05                                                                        
+00-07-05                                                                        
+00-07-07                                                                        
+00-07-08                                                                        
+00-07-09                                                                        
+00-07-15                                                                        
+
+10 rows selected.
+
+SQL> SPOOL TP1.out APPEND
