@@ -1,0 +1,40 @@
+SQL> /
+
+ NOARTICLE DESCRIPTION                                                          
+---------- --------------------                                                 
+        10 Cedre en boule                                                       
+
+SQL> SELECT noArticle, description
+  2  FROM Article
+  3  WHERE noArticle < 40 and description LIKE '%b%' and description LIKE '%e%'
+  4  /
+
+ NOARTICLE DESCRIPTION                                                          
+---------- --------------------                                                 
+        10 Cedre en boule                                                       
+
+SQL> SPOOL TP1.out APPEND
+SQL> /
+
+ NOARTICLE DESCRIPTION                                                          
+---------- --------------------                                                 
+        10 Cedre en boule                                                       
+
+SQL> SELECT Client.nomClient, Client.noTelephone
+  2  FROM Client
+  3  INNER JOIN Commande
+  4  on Client.noClient = Commande.noClient
+  5  WHERE Commande.noCommande = 5
+  6  /
+
+NOMCLIENT            NOTELEPHONE                                                
+-------------------- ---------------                                            
+Lin Bo               (777)777-7777                                              
+
+SQL> SPOOL TP1.out APPEND
+SQL> /
+
+NOMCLIENT            NOTELEPHONE                                                
+-------------------- ---------------                                            
+Lin Bo               (777)777-7777                                              
+
