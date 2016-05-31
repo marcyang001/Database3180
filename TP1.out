@@ -38,22 +38,7 @@ NOMCLIENT            NOTELEPHONE
 -------------------- ---------------                                            
 Lin Bo               (777)777-7777                                              
 
-SQL> /
-
-DATEEVEN                                                                        
---------                                                                        
-00-06-01                                                                        
-00-06-02                                                                        
-00-06-03                                                                        
-00-06-04                                                                        
-00-06-05                                                                        
-00-07-05                                                                        
-00-07-07                                                                        
-00-07-08                                                                        
-00-07-09                                                                        
-00-07-15                                                                        
-
-10 rows selected.
+6.
 
 SQL> SELECT DateLivraison as DateEvenement
   2  FROM Livraison
@@ -74,7 +59,32 @@ DATEEVEN
 00-07-08                                                                        
 00-07-09                                                                        
 00-07-15                                                                        
+                                                                    
 
-10 rows selected.
+                                                     
+8. 
 
-SQL> SPOOL TP1.out APPEND
+SQL> SELECT noArticle, quantite
+  2  FROM LigneCommande
+  3  WHERE quantite >= 0 and (noArticle > 70 and quantite < 5)
+  4  /
+
+ NOARTICLE   QUANTITE                                                           
+---------- ----------                                                           
+        90          1                                                           
+        95          3                                                           
+
+12. 
+
+SQL> SELECT Article.noArticle
+  2  FROM Article
+  3  LEFT JOIN LigneCommande ON Article.noArticle = LigneCommande.noArticle
+  4  WHERE LigneCommande.noArticle IS NULL
+  5  /
+
+ NOARTICLE                                                                      
+----------                                                                      
+        60                                                                      
+        80                                                                      
+        81                                                                      
+        
