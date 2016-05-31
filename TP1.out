@@ -1,8 +1,4 @@
-SQL> /
-
- NOARTICLE DESCRIPTION                                                          
----------- --------------------                                                 
-        10 Cedre en boule                                                       
+2.                                             
 
 SQL> SELECT noArticle, description
   2  FROM Article
@@ -13,12 +9,7 @@ SQL> SELECT noArticle, description
 ---------- --------------------                                                 
         10 Cedre en boule                                                       
 
-SQL> SPOOL TP1.out APPEND
-SQL> /
-
- NOARTICLE DESCRIPTION                                                          
----------- --------------------                                                 
-        10 Cedre en boule                                                       
+4.                                              
 
 SQL> SELECT Client.nomClient, Client.noTelephone
   2  FROM Client
@@ -31,12 +22,6 @@ NOMCLIENT            NOTELEPHONE
 -------------------- ---------------                                            
 Lin Bo               (777)777-7777                                              
 
-SQL> SPOOL TP1.out APPEND
-SQL> /
-
-NOMCLIENT            NOTELEPHONE                                                
--------------------- ---------------                                            
-Lin Bo               (777)777-7777                                              
 
 6.
 
@@ -74,6 +59,26 @@ SQL> SELECT noArticle, quantite
         90          1                                                           
         95          3                                                           
 
+
+10.
+
+SQL> SELECT * FROM DetailLivraison 
+  2  ORDER BY noArticle DESC, noCommande ASC, noLivraison DESC
+  3  /
+
+NOLIVRAISON NOCOMMANDE  NOARTICLE QUANTITELIVREE
+----------- ---------- ---------- --------------
+  102      2         95        1
+  103      1         90        1
+  100      1         70        5
+  105      5         70        2
+  102      2         40        2
+  104      4         40        1
+  100      3         20        1
+  101      1         10        3
+  100      1         10        7
+
+
 12. 
 
 SQL> SELECT Article.noArticle
@@ -87,4 +92,7 @@ SQL> SELECT Article.noArticle
         60                                                                      
         80                                                                      
         81                                                                      
+
+
+                                                                
         
